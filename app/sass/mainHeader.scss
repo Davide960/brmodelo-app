@@ -1,0 +1,73 @@
+///////////////////////////////////////////////////////////////////////////////
+// .navbar-brand.navigation-back
+///////////////////////////////////////////////////////////////////////////////
+.navbar-default .navigation-back {
+	border: none;
+	border-radius: 0;
+	padding: 16px;
+	margin-right: 8px;
+	background-color: transparent;
+}
+
+.navbar-default .navigation-back:hover {
+	background-color: var(--gray-90);
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// .navbar-brand
+///////////////////////////////////////////////////////////////////////////////
+.navbar-default .navbar-brand,
+.navbar-default .navbar-brand:hover {
+	color: var(--brand-default);
+	cursor: default;
+	padding-right: 0;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// .nav-bar .back-button
+///////////////////////////////////////////////////////////////////////////////
+.navbar-default .back-button {
+	display: block;
+	float: left;
+	color: var(--brand-default);
+	font-size: 1.2em;
+	padding: 13px 16px;
+}
+
+.navbar-default .back-button:hover {
+	color: var(--brand-default);
+	background-color: #e1e1e1;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// purelly icon nav
+///////////////////////////////////////////////////////////////////////////////
+.nav-icons .svg-inline--fa {
+	font-size: 1.5em;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// .nav-icons dropdown-icon
+///////////////////////////////////////////////////////////////////////////////
+.nav-icons .dropdown > .dropdown-menu {
+	margin-top: 0;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.nav-icons .dropdown > button {
+	border: 0;
+	padding: 15px;
+	color: var(--gray-20);
+	background-color: transparent;
+}
+
+.nav-icons .dropdown > button:focus {
+	text-decoration: none;
+	box-shadow: none;
+	background-color: var(--gray-90);
+}
+
+.nav-icons .dropdown-menu > li > a {
+	color: var(--gray-20);
+}

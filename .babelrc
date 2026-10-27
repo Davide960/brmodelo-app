@@ -1,0 +1,34 @@
+{
+	"presets": [
+		//"@babel/env",
+		"@babel/react",
+    [
+      "@babel/preset-env",
+      {
+        "modules": false
+      },
+      "jest"
+    ]
+	],
+	"plugins": [
+    ["@babel/plugin-transform-runtime",
+      {
+        "regenerator": true
+      }
+    ]
+	],
+	"env": {
+    "test": {
+			"presets": [
+        [
+          "@babel/preset-env",
+          {
+            "modules": "auto"
+          },
+          "jest"
+        ]
+      ],
+      "plugins": ["@babel/plugin-transform-runtime"]
+    }
+  }
+}

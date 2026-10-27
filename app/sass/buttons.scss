@@ -1,0 +1,127 @@
+////////////////////////////////////////////////////////////////////////////////
+// .br-button
+////////////////////////////////////////////////////////////////////////////////
+.br-button {
+	display: inline-block;
+	cursor: pointer;
+	padding: 4px 8px;
+	border: 1px solid var(--brand-primary-30);
+	border-radius: 2px;
+	margin: 0 4px 0 0;
+	color: var(--brand-primary-30);
+	font-size: 1em;
+	font-weight: 400;
+	text-align: center;
+	background-color: transparent;
+	transition: all 0.25s ease;
+}
+
+.br-button:hover:not(.br-button--static) {
+	color: var(--white);
+	background: var(--brand-primary-30);
+	text-decoration: none;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// .br-button.warning
+////////////////////////////////////////////////////////////////////////////////
+.br-button.warning {
+	border-color: var(--gray-20);
+	color: var(--gray-20);
+}
+
+.br-button.warning:hover {
+	background: var(--gray-30);
+	color: var(--white);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// .br-button.destructive
+////////////////////////////////////////////////////////////////////////////////
+.br-button.destructive {
+	border-color: var(--danger-base);
+	color: var(--danger-base);
+}
+
+.br-button.destructive:hover {
+	background: var(--danger-base);
+	color: var(--white);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// .br-button.btn-disable
+////////////////////////////////////////////////////////////////////////////////
+.br-button.btn-disable {
+	cursor: not-allowed;
+	pointer-events: none;
+	color: #c0c0c0;
+	background-color: #ddd;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// .br-button.secondary
+////////////////////////////////////////////////////////////////////////////////
+.br-button.secondary {
+	border-color: var(--gray-50);
+	color: var(--gray-50);
+}
+
+.br-button.secondary:hover {
+	border-color: var(--gray-50);
+	color: var(--gray-50);
+	background-color: var(--gray-90);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Modifiers: .br-button--
+////////////////////////////////////////////////////////////////////////////////
+.br-button--static {
+	cursor: default;
+}
+
+.br-button--full {
+	width: 100%;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// .btn-alt
+////////////////////////////////////////////////////////////////////////////////
+.btn-alt {
+	border-color: transparent;
+	background-color: var(--brand-default);
+	color: var(--white);
+	text-transform: none;
+}
+
+.btn-alt:hover:not(.br-button--static) {
+	background-color: transparent;
+	color: var(--brand-default);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// .toggle-visibility
+// Part of panels: .panelProperties and .panelElements
+////////////////////////////////////////////////////////////////////////////////
+.toggle-visibility {
+	position: relative;
+	z-index: 1;
+	display: block;
+	width: 100%;
+	line-height: 1em;
+	padding: 4px;
+	border: none;
+	border-radius: 8px;
+	background-color: var(--brand-primary-30);
+}
+
+.toggle-visibility:hover {
+	background-color: var(--brand-primary-20);
+}
+
+.toggle-visibility:focus {
+	box-shadow: none;
+}
+
+.open .toggle-visibility {
+	border-radius: 8px 8px 0 0;
+}

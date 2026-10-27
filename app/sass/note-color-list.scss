@@ -1,0 +1,57 @@
+.note-color-list {
+	display: flex;
+	gap: 1rem;
+	list-style: none;
+	padding: 0;
+}
+
+.note-color-list > li {
+	position: relative;
+	width: 32px;
+	height: 32px;
+	overflow: hidden;
+	border: 1px solid hsl(0deg, 0%, 85%);
+	border-radius: 8px;
+}
+
+.note-color-list > li:has(#color-white), .note-color-list > li:has([value="white"]) {background-color: #ffffff;} // #ffffff
+.note-color-list > li:has(#color-salmon), .note-color-list > li:has([value="salmon"]) {background-color: hsl(7.13deg, 94.4%, 79%, 1);} // #fca397
+.note-color-list > li:has(#color-orange), .note-color-list > li:has([value="orange"]) {background-color: hsl(35.2deg, 100%, 72%, 1);} // #ffc470
+.note-color-list > li:has(#color-yellow), .note-color-list > li:has([value="yellow"]) {background-color: hsl(60deg, 100%, 76.7%, 1);} // #ffff88
+.note-color-list > li:has(#color-green), .note-color-list > li:has([value="green"]) {background-color: hsl(140deg, 49.7%, 64.9%, 1);} // #79d297
+.note-color-list > li:has(#color-blue), .note-color-list > li:has([value="blue"]) {background-color: hsl(205deg, 89.9%, 72.9%, 1);} // #7cc4f8
+.note-color-list > li:has(#color-purple), .note-color-list > li:has([value="purple"]) {background-color: hsl(268deg, 100%, 82.9%, 1);} // #d1a8ff
+.note-color-list > li:has(#color-pink), .note-color-list > li:has([value="pink"]) {background-color: hsl(318deg, 96%, 80.2%, 1);} // #fd9ce0
+
+.note-color-list > li label {
+	position: absolute;
+	top: 32px
+}
+
+.note-color-list > li [type="radio"] {
+	display: block;
+	position: absolute;
+	// inset: 0;
+	// Use inset on type="radio" causes issues on Firefox
+	// Due to that I'm forcing width and height manualy
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.note-color-list > li:focus-within:has(:focus-visible) {
+	outline: dashed var(--brand-primary-10);
+}
+
+.note-color-list > li:has(:checked):after {
+	display: block;
+	z-index: 1;
+	content: "✔︎";
+	font-size: 1.5em;
+	text-align: center;
+	color: var(--gray-30);
+}
+

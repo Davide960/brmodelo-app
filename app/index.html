@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+		<meta charset="UTF-8">
+		<meta name="description" content="Ferramenta online gratuita para modelagem de banco de dados. Crie diagramas conceituais e lógicos diretamente no navegador.">
+		<title>BRMW</title>
+	</head>
+	<body>
+		<div id="root"></div>
+
+		<!-- BOTTONI DI BACKUP AUTOMATICO -->
+		<div style="position: fixed; bottom: 20px; right: 20px; z-index: 999999; display: flex; gap: 10px;">
+			<button id="btnExportBRMW" style="padding: 10px 15px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.3); font-family: sans-serif;">💾 Esporta sessione</button>
+			<button id="btnImportBRMW" style="padding: 10px 15px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.3); font-family: sans-serif;">📂 Importa sessione</button>
+		</div>
+
+		<script>
+			// Funzione Esporta (Genera il file JSON scaricabile)
+			document.getElementById('btnExportBRMW').addEventListener('click', function() {
+				var obj = JSON.stringify(localStorage, null, 4);
+				var vLink = document.createElement('a');
+				var vBlob = new Blob([obj], {type: "octet/stream"});
+				var vUrl = window.URL.createObjectURL(vBlob);
+				vLink.setAttribute('href', vUrl);
+				vLink.setAttribute('download', 'brmw-backup-schemi.json');
+				vLink.click();
+			});
+
+			// Funzione Importa (Apre la finestra file e corregge l'indice del file)
+			document.getElementById('btnImportBRMW').addEventListener('click', function() {
+				var input = document.createElement('input');
+				input.type = 'file';
+				input.accept = '.json';
+				input.onchange = function(event) {
+					var files = event.target.files;
+					if (!files || files.length === 0) return;
+					
+					var filedaLeggere = files[0]; // Correzione fondamentale del bug
+					var reader = new FileReader();
+					reader.onload = function(e) {
+						try {
+							var data = JSON.parse(e.target.result);
+							Object.keys(data).forEach(function (k) {
+								localStorage.setItem(k, data[k]);
+							});
+							alert("Progetto importato con successo! La pagina verrà ricaricata.");
+							window.location.reload();
+						} catch(err) {
+							alert("Errore: Il file selezionato non è un JSON valido.");
+						}
+					};
+					reader.readAsText(filedaLeggere);
+				};
+				input.click();
+			});
+		</script>
+	</body>
+</html>
